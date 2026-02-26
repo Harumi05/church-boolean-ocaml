@@ -1,12 +1,18 @@
 # church-boolean-ocaml
 Church Boolean Encodings in OCaml - Theory of Computation
-Students
+# Church Boolean Encodings in OCaml
+
+**Course:** Theory of Computation  
+**Assignment:** Church Encodings  
+**Language:** OCaml
+
+**Students**
 
 Harumi Nishikuni
 
 Laura Santamaria
 
-Project Description
+**Project Description**
 
 This project implements Boolean values and logical operators using Church encodings in pure lambda calculus, written in OCaml.
 
@@ -14,7 +20,7 @@ The objective of this assignment is to understand how fundamental programming co
 
 Instead of using OCaml's built-in Boolean type, we represent Booleans as higher-order functions according to Church encoding definitions.
 
-Church Encodings
+**Church Encodings**
 
 In lambda calculus, Booleans are defined as:
 
@@ -24,32 +30,32 @@ FALSE ≡ λx.λy.y → returns the second argument
 
 These definitions allow logical operations to be constructed purely through function application.
 
-Logical Operators
+**Logical Operators**
 
-Using Church encoding:
+**Using Church encoding:**
 
-AND
+**AND**
 
 AND ≡ λp.λq. p q false
 
-OR
+**OR**
 
 OR ≡ λp.λq. p true q
 
-NOT
+**NOT**
 
 NOT ≡ λp. p false true
 Implementation
 
-The implementation uses only lambda functions (fun) in OCaml.
+**The implementation uses only lambda functions (fun) in OCaml.**
 
-Boolean Definitions
+**Boolean Definitions**
 (* TRUE = λx.λy.x *)
 let true_c = fun x -> fun y -> x
 
 (* FALSE = λx.λy.y *)
 let false_c = fun x -> fun y -> y
-Logical Operators
+**Logical Operators**
 (* AND = λp.λq. p q false *)
 let and_c = fun p -> fun q -> p q false_c
 
@@ -60,19 +66,19 @@ let or_c = fun p -> fun q -> p true_c q
 let not_c = fun p -> p false_c true_c
 Conversion Helper
 
-Since Church Booleans are functions, we convert them into OCaml booleans for testing:
+**Since Church Booleans are functions, we convert them into OCaml booleans for testing:**
 
 let to_bool b = b true false
 
-This works because:
+**This works because:**
 
 Church true returns the first argument (true)
 
 Church false returns the second argument (false)
 
-How the Solution Works
+**How the Solution Works**
 
-Booleans as Functions
+**Booleans as Functions**
 Instead of storing truth values, each Boolean decides which argument to return.
 
 Logical Operations via Function Application
@@ -83,15 +89,15 @@ OR evaluates the first Boolean and returns true if possible.
 
 NOT swaps the behavior of true and false.
 
-Evaluation
+**Evaluation**
 The helper function applies the Church Boolean to real OCaml values (true and false) to visualize results.
 
-How to Run the Program
-Requirements
+**How to Run the Program**
+**Requirements**
 
 OCaml installed (version 4.x or newer recommended)
 
-Check installation:
+**Check installation:**
 
 ocaml -version
 Compile
@@ -112,17 +118,17 @@ NOT true = false
 NOT false = true
 Tools and Environment
 
-Operating System: (e.g., Windows 10 / Linux / macOS)
+**Operating System: (e.g., Windows 10 / Linux / macOS)**
 
-Programming Language: OCaml
+**Programming Language: OCaml**
 
-Compiler: OCaml compiler (ocamlc)
+**Compiler: OCaml compiler (ocamlc)**
 
 Editor/IDE: (e.g., VS Code)
 
 (Update according to your actual environment if needed.)
 
-References
+**References**
 
 Course material: SI1001 Theory of Computation – Assignment 1 
 
@@ -136,6 +142,6 @@ Lecture notes and class explanations.
 
 AI assistance used for clarification and documentation support.
 
-Academic Notes
+**Academic Notes**
 
 This implementation follows Church encoding rules strictly and uses only lambda expressions as required by the assignment instructions.
